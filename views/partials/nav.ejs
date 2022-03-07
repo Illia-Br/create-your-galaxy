@@ -4,11 +4,14 @@
 </head>
 <body>
   <nav>
+    <a href="/galaxies/index">All Galaxies</a>
+    <a href="/planets/index">All Planets</a>
     <% if (user) { %>
       <a href="/auth/logout">
         <button type="submit">Logout</button>
       </a>
     <% } else { %>
+      <a href="/profiles/<%= req.user.profile._id %>">My profile</a>
       <a href="/auth/google" class="siwg-link">
         <button type="submit" class="siwg">
           <img id="siwg-image" alt="Sign in with Google" />
