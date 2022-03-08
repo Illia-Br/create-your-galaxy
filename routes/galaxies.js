@@ -10,6 +10,8 @@ router.get('/mygalaxies', galaxiesCtrl.showMyGalaxies)
 
 router.get('/new', isLoggedIn,  galaxiesCtrl.new)
 
+router.post('/mygalaxies', galaxiesCtrl.create)
+
 export {
   router
 }
