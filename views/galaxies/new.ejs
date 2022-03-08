@@ -4,28 +4,15 @@
 <main>
   <h1><%= title %></h1>
   <form action="/galaxies/mygalaxies" method="POST" autocomplete="off">
-    <label>Type: 
-      <select name="type">
-        <option value="Planet" selected>Planet</option>
-        <option value="Moon">Moon</option>
-        <option value="Star">Star</option>
-        <option value="Asteroid">Asteroid</option>
-      </select>
-    </label><br>
-    <label>Name: 
+    <label>Name (required): 
       <input type="text" name="name">
     </label><br>
     <label>Image:
       <input type="text" name="imgUrl">
     </label><br>
-    <label>Speed:
-      <input type="text" name="speed">
-    </label><br>
-    <label>Share: 
-    <input type="checkbox" name="shared" checked
-    />
-  </label><br>
-    <button type="submit">Add Planet</button>
+    <label for="galaxy-description">Description:</label> <br>
+    <textarea id="galaxy-description" name="description"></textarea><br>
+    <button type="submit">Add Galaxy</button>
   </form>
   </main>
 

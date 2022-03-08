@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 
 
 const commentsSchema = new Schema({
-  comment: String,
+  content: String,
   author: {type: Schema.Types.ObjectId,ref: 'Profile'}
 }, {
   timestamps: true

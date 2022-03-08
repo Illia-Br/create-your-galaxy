@@ -2,7 +2,9 @@ import { Galaxy } from "../models/galaxy.js";
 import { Profile } from "../models/profile.js";
 
 
-
+function newGalaxy(req, res) {
+  res.render('galaxies/new', {title: 'New Galaxy'})
+}
 
 function showMyGalaxies(req, res) {
   Galaxy.find({createdBy: req.user.profile._id})
@@ -20,6 +22,7 @@ function showMyGalaxies(req, res) {
 }
 
 export {
+  newGalaxy as new,
   showMyGalaxies
 }
 
