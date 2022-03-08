@@ -57,11 +57,25 @@ function newPlanet(req, res) {
       })
   }
 
-
+  function deletePlanet(req, res) {
+    console.log('delete works')
+    Planet.findById(req.params.id)
+    .then(planet => {
+      planet.delete()
+      .then(() => {
+        res.redirect("/planets/myplanets")
+      })
+    })
+    .catch(err => {
+      console.log("the error:", err)
+      res.redirect("/planets/myplanets")
+    })
+  }
 
 export {
   index,
   newPlanet as new,
   create,
-  showMyPlanets
+  showMyPlanets,
+  deletePlanet as delete
 }

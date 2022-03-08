@@ -21,7 +21,7 @@
           <h2 class="card-title"><%= galaxy.name %></h2>
           <p class="card-text">Created by: <a href="/profiles/<%= galaxy.createdBy._id %>"><%= galaxy.createdBy.name %></a></p>
           <p class="card-text"><%= galaxy.description %></p>
-          <a href="/galaxies/:id" class="btn btn-primary">Look inside</a>
+          <a href="/galaxies/<%= galaxy._id %>>" class="btn btn-primary">Look inside</a>
           
         </div>
       </div>

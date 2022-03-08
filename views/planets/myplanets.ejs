@@ -22,7 +22,11 @@
           <p class="card-text">Type: <%= planet.type %></p>
           <p class="card-text">Speed: <%= planet.speed %> mph</p>
           <p class="card-text">Created by: <a href="/profiles/<%= planet.createdBy._id %>"><%= planet.createdBy.name %></a></p>
-          <a href="#" class="btn btn-primary">Add to Galaxy</a>
+          <a href="#" class="btn btn-primary">Add to your Galaxy</a>
+          <form action="/planets/myplanets/<%= planet._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+            <a href="#" class="btn btn-success">Edit</a>
         </div>
       </div>
       <% }) %>

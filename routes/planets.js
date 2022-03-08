@@ -11,6 +11,8 @@ router.get('/myplanets', planetsCtrl.showMyPlanets)
 
 router.post('/myplanets', planetsCtrl.create)
 
+router.delete('/myplanets/:id', planetsCtrl.delete)
+
 export {
   router
 }
