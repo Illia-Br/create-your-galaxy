@@ -18,7 +18,8 @@ import('./config/passport.js')
 // require routes
 import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
-import { router as profilesRouter } from './routes/profile.js'
+import { router as profilesRouter } from './routes/profiles.js'
+import { router as planetsRouter } from './routes/planets.js'
 
 // create the express app
 const app = express()
@@ -64,6 +65,7 @@ app.use(passUserToView)
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/profiles', profilesRouter)
+app.use('/planets', planetsRouter)
 
 
 
