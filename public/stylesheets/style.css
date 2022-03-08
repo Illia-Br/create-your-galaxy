@@ -60,3 +60,15 @@ main {
 h1 {
   font-size: 3.6rem;
 }
+
+.card {
+  margin-bottom: 1%;
+}
+
+.card img {
+  max-width: 75%;
+}
+
+.btn {
+  font-size: 1.6rem;
+}

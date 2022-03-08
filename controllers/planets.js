@@ -4,6 +4,7 @@ import { Profile } from '../models/profile.js'
 
 function showMyPlanets(req, res) {
   Planet.find({createdBy: req.user.profile._id})
+    .populate('createdBy')
     .then(planets => {
       res.render('planets/myplanets', {
         planets,
