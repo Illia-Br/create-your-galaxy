@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 
 const planetSchema = new Schema({
   type: {type: String, enum: ['Planet', 'Moon', 'Star', 'Asteroid'], defult: 'Planet'},
-  name: String,
+  name: {type: String, required: true},
   imgUrl: String,
   speed: Number,
   shared: Boolean,
