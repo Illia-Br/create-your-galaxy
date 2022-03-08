@@ -3,7 +3,7 @@
 
 <main>
   <h1><%= title %></h1>
-  <form action="/planets" method="POST" autocomplete="off">
+  <form action="/planets/myplanets" method="POST" autocomplete="off">
     <label>Type: 
       <select name="type">
         <option value="Planet" selected>Planet</option>
@@ -16,7 +16,7 @@
       <input type="text" name="name">
     </label><br>
     <label>Image:
-      <input type="text" name="imageUrl">
+      <input type="text" name="imgUrl">
     </label><br>
     <label>Speed:
       <input type="text" name="speed">
