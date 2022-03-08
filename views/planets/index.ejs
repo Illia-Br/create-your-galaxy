@@ -1,0 +1,34 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+  <main>
+    <h1><%= title %></h1>
+
+    <% planets.forEach(planet => { %>  
+      <div class="card text-center w-50">
+        <div class="card-body">
+          <% if (planet.imgUrl) { %>
+            <img
+              src="<%= planet.imgUrl %>" 
+              alt="<%= planet.name %>"
+            />
+          <% } else { %>
+            <img
+              src="/images/planets/default<%= planet.type %>.jpeg" 
+              alt="placeholder"
+            >
+          <% } %>
+          <h2 class="card-title"><%= planet.name %></h2>
+          <p class="card-text">Type: <%= planet.type %></p>
+          <p class="card-text">Speed: <%= planet.speed %> mph</p>
+          <p class="card-text">Created by: <a href="/profiles/<%= planet.createdBy._id %>"><%= planet.createdBy.name %></a></p>
+          <% if (planet.shared) { %> 
+          <a href="#" class="btn btn-primary">Add to Galaxy</a>
+          <% } %> 
+        </div>
+      </div>
+      <% }) %>
+      
+  </main>
+
+  <%- include('../partials/footer') %>

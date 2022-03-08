@@ -2,6 +2,22 @@ import { Planet } from "../models/planet.js"
 import { Profile } from '../models/profile.js'
 
 
+function index(req, res) {
+  Planet.find({})
+  .populate('createdBy')
+  .then(planets => {
+    res.render('planets/index', {
+      planets,
+      title: "All Planets"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+
 function showMyPlanets(req, res) {
   Planet.find({createdBy: req.user.profile._id})
     .populate('createdBy')
@@ -44,6 +60,7 @@ function newPlanet(req, res) {
 
 
 export {
+  index,
   newPlanet as new,
   create,
   showMyPlanets
