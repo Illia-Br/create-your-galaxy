@@ -57,20 +57,22 @@ function newPlanet(req, res) {
       })
   }
 
-  function deletePlanet(req, res) {
-    console.log('delete works')
-    Planet.findById(req.params.id)
+
+function deletePlanet(req, res) {
+    Planet.findByIdAndDelete(req.params.id)
     .then(planet => {
-      planet.delete()
-      .then(() => {
-        res.redirect("/planets/myplanets")
+      Profile.findById(req.user.profile._id)
+      .then(profile => {
+        profile.planets.pop(planet._id)
+        profile.save()
+        res.redirect('/planets/myplanets')
+        })
       })
-    })
     .catch(err => {
-      console.log("the error:", err)
-      res.redirect("/planets/myplanets")
-    })
-  }
+      console.log(err)
+      res.redirect('/planets/new')
+      })
+    }
 
 export {
   index,

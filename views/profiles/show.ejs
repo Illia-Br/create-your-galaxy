@@ -18,7 +18,7 @@
     
   <% if (profile.galaxies.length) { %>
       <h2><%= isSelf ? "You have: " : `${profile.name} has: ` %></h2>
-      <h3> <%= `${profile.galaxies.length} planets!` %> </h3>
+      <h3> <%= `${profile.galaxies.length} galaxies!` %> </h3>
   <% } else { %>
     <h3>
       <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any galaxies!
