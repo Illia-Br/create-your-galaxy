@@ -2,6 +2,21 @@ import { Galaxy } from "../models/galaxy.js";
 import { Profile } from "../models/profile.js";
 
 
+function index(req, res) {
+  Galaxy.find({})
+  .populate('createdBy')
+  .then(galaxies => {
+    res.render('galaxies/index', {
+      galaxies,
+      title: "All Galaxies"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 function newGalaxy(req, res) {
   res.render('galaxies/new', {title: 'New Galaxy'})
 }
@@ -92,6 +107,7 @@ function deleteGalaxy(req, res) {
 
 
 export {
+  index,
   newGalaxy as new,
   showMyGalaxies,
   show,

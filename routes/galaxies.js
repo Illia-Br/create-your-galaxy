@@ -5,6 +5,7 @@ import { isLoggedIn } from "../middleware/middleware.js";
 
 const router = Router()
 
+router.get('/', galaxiesCtrl.index)
 
 router.get('/mygalaxies', galaxiesCtrl.showMyGalaxies)
 
