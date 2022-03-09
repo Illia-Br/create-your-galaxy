@@ -38,7 +38,8 @@ function showMyGalaxies(req, res) {
 
 function show(req, res) {
   Galaxy.findById(req.params.id)
-    .populate('createdBy')  
+    .populate('createdBy')
+    .populate('planets')  
     .then(galaxy => {
       res.render('galaxies/show', {
         galaxy,
@@ -105,6 +106,18 @@ function deleteGalaxy(req, res) {
     })
   }
 
+  function addPlanet(req, res) {
+    Galaxy.findById(req.body.galaxyId) 
+      .then(galaxy => {
+      galaxy.planets.push(req.params.id)
+      galaxy.save()
+      res.redirect(`/galaxies/${req.body.galaxyId}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/planets')
+        })
+   }
 
 export {
   index,
@@ -114,7 +127,8 @@ export {
   create,
   deleteGalaxy as delete,
   edit,
-  update
+  update,
+  addPlanet
 }
 
 

@@ -7,6 +7,8 @@
     <a href="/galaxies">All Galaxies</a>
     <a href="/planets">All Planets</a>
     <% if (user) { %>
+      <a href="/galaxies/mygalaxies">My Galaxies</a>
+      <a href="/planets/myplanets">My Planets</a>
       <a href="/profiles/<%= user.profile._id %>">My profile</a>
       <a href="/auth/logout">
         <button type="submit">Logout</button>

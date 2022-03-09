@@ -22,8 +22,22 @@
           <p class="card-text">Type: <%= planet.type %></p>
           <p class="card-text">Speed: <%= planet.speed %> mph</p>
           <p class="card-text">Created by: <a href="/profiles/<%= planet.createdBy._id %>"><%= planet.createdBy.name %></a></p>
+          <% if (user) {%> 
           <% if (planet.shared) { %> 
-          <a href="#" class="btn btn-primary">Add to Galaxy</a>
+          <form 
+          action="/galaxies/<%= planet._id %>/planets"
+          method="post"
+          >
+          <label> Choose your Galaxy:
+          <select name="galaxyId">
+          <% galaxies.forEach(galaxy => { %>
+          <option value="<%= galaxy._id %>"><%= galaxy.name %></option>
+          <% }) %>
+          </select>
+          </label>
+          <button type="submit" class="btn btn-primary">Add to Galaxy</button>
+          </form>
+          <% } %>
           <% } %> 
         </div>
       </div>

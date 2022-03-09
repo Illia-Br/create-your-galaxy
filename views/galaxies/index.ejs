@@ -22,10 +22,10 @@
           <p class="card-text">Created by: <a href="/profiles/<%= galaxy.createdBy._id %>"><%= galaxy.createdBy.name %></a></p>
           <p class="card-text"><%= galaxy.description %></p>
           <a href="/galaxies/<%= galaxy._id %>" class="btn btn-primary">Look inside</a>
-          <form action="/galaxies/<%= galaxy._id %>?_method=DELETE" method="POST">
+          <!-- <form action="/galaxies/<%= galaxy._id %>?_method=DELETE" method="POST">
             <button type="submit" class="btn btn-danger">Delete</button>
           </form>
-            <a href="/galaxies/<%= galaxy._id %>/edit" class="btn btn-success">Edit</a>
+            <a href="/galaxies/<%= galaxy._id %>/edit" class="btn btn-success">Edit</a> -->
         </div>
       </div>
       <% }) %>

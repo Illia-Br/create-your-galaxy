@@ -17,6 +17,8 @@ router.get('/:id/edit', galaxiesCtrl.edit)
 
 router.post('/mygalaxies', galaxiesCtrl.create)
 
+router.post('/:id/planets', galaxiesCtrl.addPlanet)
+
 router.put('/:id', galaxiesCtrl.update)
 
 router.delete('/:id', galaxiesCtrl.delete)
