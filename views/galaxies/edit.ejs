@@ -1,0 +1,19 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <form action="/galaxies/<%= galaxy._id %>?_method=PUT" method="POST" autocomplete="off">
+    <label>Name (required): 
+      <input type="text" name="name" value="<%= galaxy.name %>">
+    </label><br>
+    <label>Image:
+      <input type="text" name="imgUrl" value="<%= galaxy.imgUrl %>">
+    </label><br>
+    <label for="galaxy-description">Description:</label> <br>
+    <textarea id="galaxy-description" name="description" value="<%= galaxy.description %>"><%= galaxy.description %></textarea><br>
+    <button type="submit">Save Galaxy</button>
+  </form>
+  </main>
+
+<%- include('../partials/footer') %>

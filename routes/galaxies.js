@@ -10,8 +10,11 @@ router.get('/mygalaxies', galaxiesCtrl.showMyGalaxies)
 
 router.get('/new', isLoggedIn,  galaxiesCtrl.new)
 
+router.get('/:id/edit', galaxiesCtrl.edit)
+
 router.post('/mygalaxies', galaxiesCtrl.create)
 
+router.put('/:id', galaxiesCtrl.update)
 
 router.delete('/:id', galaxiesCtrl.delete)
 

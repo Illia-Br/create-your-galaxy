@@ -38,6 +38,27 @@ function create(req, res) {
     })
 }
 
+function edit(req, res) {
+  Galaxy.findById(req.params.id)
+    .then(galaxy => {
+      res.render('galaxies/edit', {
+        galaxy,
+        title: 'Edit Galaxy'
+      })
+    })
+}
+
+function update(req, res) {
+  Galaxy.findByIdAndUpdate(req.params.id, req.body)
+    .then(galaxy => {
+      res.redirect('/galaxies/mygalaxies')
+    })
+    .catch(err => {
+      console.log("the error:", err)
+      res.redirect(`/galaxies/${req.params.id}/edit`)
+    })
+}
+
 function deleteGalaxy(req, res) {
   Galaxy.findByIdAndDelete(req.params.id)
   .then(galaxy => {
@@ -59,7 +80,9 @@ export {
   newGalaxy as new,
   showMyGalaxies,
   create,
-  deleteGalaxy as delete
+  deleteGalaxy as delete,
+  edit,
+  update
 }
 
 
