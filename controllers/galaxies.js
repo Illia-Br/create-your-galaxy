@@ -21,6 +21,21 @@ function showMyGalaxies(req, res) {
     })
 }
 
+function show(req, res) {
+  Galaxy.findById(req.params.id)
+    .populate('createdBy')  
+    .then(galaxy => {
+      res.render('galaxies/show', {
+        galaxy,
+        title: "Galaxy"
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/galaxies/mygalaxies')
+      })
+}
+
 function create(req, res) {
   req.body.createdBy = req.user.profile._id
   Galaxy.create(req.body)
@@ -79,6 +94,7 @@ function deleteGalaxy(req, res) {
 export {
   newGalaxy as new,
   showMyGalaxies,
+  show,
   create,
   deleteGalaxy as delete,
   edit,

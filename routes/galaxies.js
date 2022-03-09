@@ -8,6 +8,8 @@ const router = Router()
 
 router.get('/mygalaxies', galaxiesCtrl.showMyGalaxies)
 
+router.get('/:id', galaxiesCtrl.show)
+
 router.get('/new', isLoggedIn,  galaxiesCtrl.new)
 
 router.get('/:id/edit', galaxiesCtrl.edit)
