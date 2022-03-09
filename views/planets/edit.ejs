@@ -3,7 +3,7 @@
 
 <main>
   <h1><%= title %></h1>
-  <form action="/planets/myplanets?_method=PUT" method="POST" autocomplete="off">
+  <form action="/planets/<%= planet._id %>?_method=PUT" method="POST" autocomplete="off">
     <label>Type: 
       <select name="type">
         <option value="<%= planet.type %>"><%= planet.type %></option>

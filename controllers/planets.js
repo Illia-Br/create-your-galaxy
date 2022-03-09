@@ -84,11 +84,24 @@ function edit(req, res) {
     })
 }
 
+function update(req, res) {
+  req.body.shared = !!req.body.shared
+  Planet.findByIdAndUpdate(req.params.id, req.body)
+    .then(planet => {
+      res.redirect('/planets/myplanets')
+    })
+    .catch(err => {
+      console.log("the error:", err)
+      res.redirect(`/planets/${req.params.id}/edit`)
+    })
+}
+
 export {
   index,
   newPlanet as new,
   create,
   showMyPlanets,
   deletePlanet as delete,
-  edit
+  edit,
+  update
 }

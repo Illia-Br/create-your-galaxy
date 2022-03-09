@@ -13,7 +13,9 @@ router.get('/myplanets', planetsCtrl.showMyPlanets)
 
 router.post('/myplanets', planetsCtrl.create)
 
-router.delete('/myplanets/:id', planetsCtrl.delete)
+router.put('/:id', planetsCtrl.update)
+
+router.delete('/:id', planetsCtrl.delete)
 
 export {
   router
