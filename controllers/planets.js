@@ -70,7 +70,7 @@ function deletePlanet(req, res) {
       })
     .catch(err => {
       console.log(err)
-      res.redirect('/planets/new')
+      res.redirect('/planets/myplanets')
       })
     }
 

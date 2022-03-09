@@ -12,6 +12,9 @@ router.get('/new', isLoggedIn,  galaxiesCtrl.new)
 
 router.post('/mygalaxies', galaxiesCtrl.create)
 
+
+router.delete('/:id', galaxiesCtrl.delete)
+
 export {
   router
 }

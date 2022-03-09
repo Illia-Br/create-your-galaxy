@@ -38,10 +38,28 @@ function create(req, res) {
     })
 }
 
+function deleteGalaxy(req, res) {
+  Galaxy.findByIdAndDelete(req.params.id)
+  .then(galaxy => {
+    Profile.findById(req.user.profile._id)
+    .then(profile => {
+      profile.galaxies.pop(galaxy._id)
+      profile.save()
+      res.redirect('/galaxies/mygalaxies')
+      })
+    })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/galaxies/mygalaxies')
+    })
+  }
+
+
 export {
   newGalaxy as new,
   showMyGalaxies,
-  create
+  create,
+  deleteGalaxy as delete
 }
 
 
