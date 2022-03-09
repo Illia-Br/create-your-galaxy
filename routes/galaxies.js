@@ -23,6 +23,8 @@ router.put('/:id', galaxiesCtrl.update)
 
 router.delete('/:id', galaxiesCtrl.delete)
 
+router.delete('/:galaxyId/planets/:planetId', galaxiesCtrl.removePlanet)
+
 export {
   router
 }

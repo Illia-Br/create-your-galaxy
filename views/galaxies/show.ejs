@@ -9,9 +9,35 @@
   </div>
   <div>
     <h2>Planets:</h2>
-    <% galaxy.planets.forEach(planet => { %> 
-    <p><%= planet.name %> </p>
-    <% }) %> 
+    <% galaxy.planets.forEach(planet => { %>  
+      <div class="card text-center w-50">
+        <div class="card-body">
+          <% if (planet.imgUrl) { %>
+            <img
+              src="<%= planet.imgUrl %>" 
+              alt="<%= planet.name %>"
+            />
+          <% } else { %>
+            <img
+              src="/images/planets/default<%= planet.type %>.jpeg" 
+              alt="placeholder"
+            >
+          <% } %>
+          <h2 class="card-title"><%= planet.name %></h2>
+          <p class="card-text">Type: <%= planet.type %></p>
+          <p class="card-text">Speed: <%= planet.speed %> mph</p>
+          <p class="card-text">Created by: <a href="/profiles/<%= planet.createdBy._id %>"><%= planet.createdBy.name %></a></p>
+          <a href="#" class="btn btn-primary">Add to your Galaxy</a>
+          <form action="/planets/<%= planet._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+            <a href="/planets/<%= planet._id %>/edit" class="btn btn-success">Edit</a>
+            <form action="/galaxies/<%= galaxy._id %>/planets/<%= planet._id %>?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-warning">Remove</button>
+            </form>
+        </div>
+      </div>
+      <% }) %>
   </div>
   </main>
 

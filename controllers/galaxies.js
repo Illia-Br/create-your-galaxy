@@ -119,6 +119,19 @@ function deleteGalaxy(req, res) {
         })
    }
 
+   function removePlanet(req, res) {
+    Galaxy.findById(req.params.galaxyId)
+      .then(galaxy => {
+        galaxy.planets.remove({_id: req.params.planetId})
+        galaxy.save()
+        res.redirect(`/galaxies/${req.params.galaxyId}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect(`/galaxies/${req.params.galaxyId}`)
+      })
+   } 
+
 export {
   index,
   newGalaxy as new,
@@ -128,7 +141,8 @@ export {
   deleteGalaxy as delete,
   edit,
   update,
-  addPlanet
+  addPlanet,
+  removePlanet
 }
 
 
