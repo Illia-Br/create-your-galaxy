@@ -7,6 +7,8 @@ router.get('/', planetsCtrl.index)
 
 router.get('/new', planetsCtrl.new)
 
+router.get('/:id/edit', planetsCtrl.edit)
+
 router.get('/myplanets', planetsCtrl.showMyPlanets)
 
 router.post('/myplanets', planetsCtrl.create)

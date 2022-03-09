@@ -74,10 +74,21 @@ function deletePlanet(req, res) {
       })
     }
 
+function edit(req, res) {
+  Planet.findById(req.params.id)
+    .then(planet => {
+      res.render('planets/edit', {
+        planet,
+        title: 'Edit Planet'
+      })
+    })
+}
+
 export {
   index,
   newPlanet as new,
   create,
   showMyPlanets,
-  deletePlanet as delete
+  deletePlanet as delete,
+  edit
 }

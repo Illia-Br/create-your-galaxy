@@ -1,0 +1,33 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1><%= title %></h1>
+  <form action="/planets/myplanets?_method=PUT" method="POST" autocomplete="off">
+    <label>Type: 
+      <select name="type">
+        <option value="<%= planet.type %>"><%= planet.type %></option>
+        <option value="Planet">Planet</option>
+        <option value="Moon">Moon</option>
+        <option value="Star">Star</option>
+        <option value="Asteroid">Asteroid</option>
+      </select>
+    </label><br>
+    <label>Name: 
+      <input type="text" name="name" value="<%= planet.name %>">
+    </label><br>
+    <label>Image:
+      <input type="text" name="imgUrl" value="<%= planet.imgUrl %>">
+    </label><br>
+    <label>Speed:
+      <input type="text" name="speed" value="<%= planet.speed %>">
+    </label><br>
+    <label>Share: 
+    <input type="checkbox" name="shared" <%= planet.shared ? 'checked' : '' %>
+    />
+  </label><br>
+    <button type="submit">Save Planet</button>
+  </form>
+  </main>
+
+<%- include('../partials/footer') %>
