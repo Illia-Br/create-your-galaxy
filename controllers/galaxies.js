@@ -40,7 +40,7 @@ function showMyGalaxies(req, res) {
 function show(req, res) {
   Galaxy.findById(req.params.id)
     .populate('createdBy')
-    .populate('planets')  
+    .populate({path: 'planets', populate: {path: 'createdBy'}})  
     .then(galaxy => {
       if(req.user) {
       Galaxy.find({createdBy: req.user.profile._id})

@@ -19,7 +19,7 @@ router.post('/mygalaxies',isLoggedIn, galaxiesCtrl.create)
 
 router.post('/:id/planets',isLoggedIn, galaxiesCtrl.addPlanet)
 
-router.put('/:id', galaxiesCtrl.update)
+router.put('/:id',isLoggedIn, galaxiesCtrl.update)
 
 router.delete('/:id',isLoggedIn, galaxiesCtrl.delete)
 

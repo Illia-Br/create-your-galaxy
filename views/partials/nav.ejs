@@ -4,11 +4,12 @@
 </head>
 <body>
   <nav>
+    <a id="logo" href="/"><i class="fas fa-earth-africa"></i></a>
     <a href="/galaxies">All Galaxies</a>
-    <a href="/planets">All Planets</a>
+    <a href="/planets">All Space Objects</a>
     <% if (user) { %>
       <a href="/galaxies/mygalaxies">My Galaxies</a>
-      <a href="/planets/myplanets">My Planets</a>
+      <a href="/planets/myplanets">My Space Objects</a>
       <a href="/profiles/<%= user.profile._id %>">My profile</a>
       <a href="/auth/logout">
         <button type="submit">Logout</button>

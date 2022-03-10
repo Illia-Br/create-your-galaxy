@@ -8,15 +8,15 @@ router.get('/', planetsCtrl.index)
 
 router.get('/new',isLoggedIn, planetsCtrl.new)
 
-router.get('/:id/edit', planetsCtrl.edit)
+router.get('/:id/edit',isLoggedIn, planetsCtrl.edit)
 
 router.get('/myplanets',isLoggedIn, planetsCtrl.showMyPlanets)
 
 router.post('/myplanets',isLoggedIn, planetsCtrl.create)
 
-router.put('/:id', planetsCtrl.update)
+router.put('/:id',isLoggedIn, planetsCtrl.update)
 
-router.delete('/:id', planetsCtrl.delete)
+router.delete('/:id',isLoggedIn, planetsCtrl.delete)
 
 export {
   router

@@ -2,15 +2,9 @@
 <%- include('./partials/nav') %>
 
 <main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
-  <% } %>
+  <h1 class="main-h1">Welcome to "Create your Galaxy!"</h1>
+  <h2>You can browse all the Galaxies and Space Objects created or sign in to create your owns</h2>
+
 </main>
 
 <%- include('./partials/footer') %>
