@@ -1,4 +1,5 @@
 import { Galaxy } from "../models/galaxy.js";
+import { Planet } from "../models/planet.js";
 import { Profile } from "../models/profile.js";
 
 
@@ -41,10 +42,15 @@ function show(req, res) {
     .populate('createdBy')
     .populate('planets')  
     .then(galaxy => {
-      res.render('galaxies/show', {
-        galaxy,
-        title: "My Galaxy"
-      })
+      if(req.user) {
+      Galaxy.find({createdBy: req.user.profile._id})
+        .then(galaxies => {
+          res.render('galaxies/show', {
+            galaxies,
+            galaxy,
+            title: "My Galaxy"
+          })
+        })}
     })
     .catch(err => {
       console.log(err)

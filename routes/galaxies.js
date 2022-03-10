@@ -7,23 +7,23 @@ const router = Router()
 
 router.get('/', galaxiesCtrl.index)
 
-router.get('/mygalaxies', galaxiesCtrl.showMyGalaxies)
+router.get('/mygalaxies',isLoggedIn, galaxiesCtrl.showMyGalaxies)
 
 router.get('/new', isLoggedIn,  galaxiesCtrl.new)
 
 router.get('/:id', galaxiesCtrl.show)
 
-router.get('/:id/edit', galaxiesCtrl.edit)
+router.get('/:id/edit',isLoggedIn, galaxiesCtrl.edit)
 
-router.post('/mygalaxies', galaxiesCtrl.create)
+router.post('/mygalaxies',isLoggedIn, galaxiesCtrl.create)
 
-router.post('/:id/planets', galaxiesCtrl.addPlanet)
+router.post('/:id/planets',isLoggedIn, galaxiesCtrl.addPlanet)
 
 router.put('/:id', galaxiesCtrl.update)
 
-router.delete('/:id', galaxiesCtrl.delete)
+router.delete('/:id',isLoggedIn, galaxiesCtrl.delete)
 
-router.delete('/:galaxyId/planets/:planetId', galaxiesCtrl.removePlanet)
+router.delete('/:galaxyId/planets/:planetId',isLoggedIn, galaxiesCtrl.removePlanet)
 
 export {
   router
