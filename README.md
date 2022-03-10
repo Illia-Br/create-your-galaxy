@@ -13,7 +13,7 @@ Try it now: <https://create-your-galaxy.herokuapp.com/>
 
 ##### Initial wireframe
 
-![Wireframe](.public/images/readme/wireframe.png)
+![Wireframe](./images/readme/wireframe.png)
 
 ##### "Create your Galaxy!" now
 
