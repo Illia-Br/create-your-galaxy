@@ -43,7 +43,7 @@ function show(req, res) {
     .then(galaxy => {
       res.render('galaxies/show', {
         galaxy,
-        title: "Galaxy"
+        title: "My Galaxy"
       })
     })
     .catch(err => {

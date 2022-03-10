@@ -29,14 +29,17 @@ function index(req, res) {
 }
 
 
-
 function showMyPlanets(req, res) {
   Planet.find({createdBy: req.user.profile._id})
     .populate('createdBy')
     .then(planets => {
-      res.render('planets/myplanets', {
-        planets,
-        title: 'My planets'
+      Galaxy.find({createdBy: req.user.profile._id})
+       .then(galaxies => {
+        res.render('planets/myplanets', {
+          galaxies,
+          planets,
+          title: "My Space Objects"
+        })
       })
     })
     .catch(err => {

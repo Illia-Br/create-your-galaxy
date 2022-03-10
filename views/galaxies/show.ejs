@@ -7,7 +7,6 @@
     <p>Created by: <a href="/profiles/<%= galaxy.createdBy._id %>"><%= galaxy.createdBy.name %></a></p>
     <p>Description: <%= galaxy.description %></p>
   </div>
-  <div>
     <h2>Planets:</h2>
     <% galaxy.planets.forEach(planet => { %>  
       <div class="card text-center w-50">
@@ -38,7 +37,6 @@
         </div>
       </div>
       <% }) %>
-  </div>
   </main>
 
 <%- include('../partials/footer') %>
