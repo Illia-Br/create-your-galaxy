@@ -45,13 +45,19 @@ function show(req, res) {
       if(req.user) {
       Galaxy.find({createdBy: req.user.profile._id})
         .then(galaxies => {
-          res.render('galaxies/show', {
-            galaxies,
+            res.render('galaxies/show', {
+              galaxies,
+              galaxy,
+              title: "My Galaxy"
+            })
+          })
+        } else {
+            res.render('galaxies/show', {
             galaxy,
             title: "My Galaxy"
-          })
-        })}
-    })
+            })
+         }
+      })
     .catch(err => {
       console.log(err)
       res.redirect('/galaxies/mygalaxies')

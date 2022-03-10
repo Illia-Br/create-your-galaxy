@@ -52,13 +52,17 @@
               <p>This Space Object is not shared</p>
             <% } %> 
           <% } %> 
-          <form action="/planets/<%= planet._id %>?_method=DELETE" method="POST">
+          <!-- <form action="/planets/<%= planet._id %>?_method=DELETE" method="POST">
             <button type="submit" class="btn btn-danger">Delete</button>
           </form>
-            <a href="/planets/<%= planet._id %>/edit" class="btn btn-success">Edit</a>
-            <form action="/galaxies/<%= galaxy._id %>/planets/<%= planet._id %>?_method=DELETE" method="POST">
+            <a href="/planets/<%= planet._id %>/edit" class="btn btn-success">Edit</a> -->
+            <% if (user) { %> 
+              <% if (galaxy.createdBy._id.equals(user?.profile._id)) { %> 
+             <form action="/galaxies/<%= galaxy._id %>/planets/<%= planet._id %>?_method=DELETE" method="POST">
               <button type="submit" class="btn btn-warning">Remove</button>
-            </form>
+              </form>
+              <% } %> 
+            <% }%>
         </div>
       </div>
       <% }) %>
