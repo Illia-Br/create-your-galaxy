@@ -23,26 +23,35 @@
           <p class="card-text">Speed: <%= planet.speed %> mph</p>
           <p class="card-text">Created by: <a href="/profiles/<%= planet.createdBy._id %>"><%= planet.createdBy.name %></a></p>
           <% if (user) {%> 
-          <% if (planet.shared) { %> 
-          <form 
-          action="/galaxies/<%= planet._id %>/planets"
-          method="post"
-          >
-          <label> Choose your Galaxy:
-          <select name="galaxyId">
-          <% galaxies.forEach(galaxy => { %>
-          <option value="<%= galaxy._id %>"><%= galaxy.name %></option>
-          <% }) %>
-          </select>
-          </label>
-          <button type="submit" class="btn btn-primary">Add to Galaxy</button>
-          </form>
-          <% } %>
+            <% if (planet.shared) { %> 
+              <p>This Space Object is shared</p>
+              <% if (galaxies.length) { %> 
+                <form 
+                 action="/galaxies/<%= planet._id %>/planets"
+                method="post"
+                >
+                <label> Choose your Galaxy:
+                <select name="galaxyId">
+                <% galaxies.forEach(galaxy => { %>
+                <% if (!(galaxy.planets.includes(planet._id))) {%> 
+                <option value="<%= galaxy._id %>"><%= galaxy.name %></option>
+                  <% } %>
+                <% }) %>
+                </select>
+                </label>
+                <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+              <% } else { %>
+                <p>You don't have any Galaxies yet <a href="/galaxies/new" class="btn btn-primary">Create new Galaxy</a></p>
+              <% } %>
+            <% } else {%>
+              <p>This Space Object is not shared</p>
+            <% } %> 
           <% } %> 
         </div>
       </div>
       <% }) %>
-      
+
   </main>
 
   <%- include('../partials/footer') %>

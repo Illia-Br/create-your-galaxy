@@ -9,9 +9,9 @@ router.get('/', galaxiesCtrl.index)
 
 router.get('/mygalaxies', galaxiesCtrl.showMyGalaxies)
 
-router.get('/:id', galaxiesCtrl.show)
-
 router.get('/new', isLoggedIn,  galaxiesCtrl.new)
+
+router.get('/:id', galaxiesCtrl.show)
 
 router.get('/:id/edit', galaxiesCtrl.edit)
 
