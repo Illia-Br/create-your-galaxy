@@ -7,7 +7,7 @@ const planetSchema = new Schema({
   type: {type: String, enum: ['Planet', 'Moon', 'Star', 'Asteroid'], defult: 'Planet'},
   name: {type: String, required: true},
   imgUrl: String,
-  speed: Number,
+  size: Number,
   shared: Boolean,
   createdBy: {type: Schema.Types.ObjectId,ref: 'Profile'}
 }, {
