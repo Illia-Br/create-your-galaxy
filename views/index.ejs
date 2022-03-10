@@ -1,10 +1,16 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
-<main>
+<main class="main-main">
   <h1 class="main-h1">Welcome to "Create your Galaxy!"</h1>
-  <h2>You can browse all the Galaxies and Space Objects created or sign in to create your owns</h2>
-
+  <% if (user) { %> 
+    <div class="main-button-container">
+      <a href="/galaxies/new" class="btn btn-primary btn-lg active">Add Galaxy</a>
+      <a href="/planets/new" class="btn btn-primary btn-lg active">Add Space Object</a>
+    </div>
+   <% } else { %> 
+    <h2>You can browse all the Galaxies and Space Objects created or sign in to create your owns</h2>
+    <% } %> 
 </main>
 
 <%- include('./partials/footer') %>
