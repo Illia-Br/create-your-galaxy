@@ -50,7 +50,7 @@ function showMyPlanets(req, res) {
 
 
 function newPlanet(req, res) {
-  res.render('planets/new', {title: 'New Planet'})
+  res.render('planets/new', {title: 'New Space Object'})
 }
 
 

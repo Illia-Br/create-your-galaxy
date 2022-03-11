@@ -3,7 +3,7 @@
 
 <main>
   <h1><%= title %></h1>
-  <form action="/planets/myplanets" method="POST" autocomplete="off">
+  <form class="new-item" action="/planets/myplanets" method="POST" autocomplete="off">
     <label>Type: 
       <select name="type">
         <option value="Planet" selected>Planet</option>
@@ -12,21 +12,25 @@
         <option value="Asteroid">Asteroid</option>
       </select>
     </label><br>
-    <label>Name: 
-      <input type="text" name="name">
+    <label>Name (required): 
+      <input type="text" name="name" placeholder="Any name">
     </label><br>
-    <label>Image:
-      <input type="text" name="imgUrl">
+    <label>Image URL:
+      <input type="text" name="imgUrl" placeholder="https://...">
     </label><br>
     <label>Size:
-      <input type="text" name="size">
+      <input type="text" name="size" placeholder="Number">
     </label><br>
     <label>Share: 
     <input type="checkbox" name="shared" checked
     />
   </label><br>
-    <button type="submit">Add Planet</button>
+    <button class="btn btn-primary btn-lg" type="submit">Add Object</button>
+    <p>* Leave "Image Url" field blank if you want default picture to be applied</p>
+    <p>* "Size" represents your Object's diameter in miles</p>
+    <p>*Check "Share" if you allow other people to add your Object to their Galaxies</p>
   </form>
+
   </main>
 
 <%- include('../partials/footer') %>
