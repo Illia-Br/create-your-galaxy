@@ -202,8 +202,9 @@ h4 {
 
 .card-body {
   padding: 10px 0 1%;
-  background: url('/images/background1.jpg') #e8eceb;
-  background-size: cover;
+  
+  /* background: url('/images/background1.jpg') #e8eceb;
+  background-size: cover; */
 }
 
 .card-title {

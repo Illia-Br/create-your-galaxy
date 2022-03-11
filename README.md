@@ -17,7 +17,7 @@ Try it now: <https://create-your-galaxy.herokuapp.com/>
 
 ##### "Create your Galaxy!" now
 
-!["Create your Galaxy!" screenshot]()
+!["Create your Galaxy!" screenshot](./public/images/readme/screenshot2.png)
 
 ##### Trello project link
 
@@ -27,7 +27,7 @@ Try it now: <https://create-your-galaxy.herokuapp.com/>
 
 + HTML
 + JavaScript (EJS)
-+ CSS
++ CSS, Bootstrap
 + Node.js with Express.js
 + MongoDB with Mongoose.js
 
