@@ -5,8 +5,8 @@
 <main>
   <h1><%= galaxy.name %> Galaxy!</h1>
   <div>
-    <p>Created by: <a href="/profiles/<%= galaxy.createdBy._id %>"><%= galaxy.createdBy.name %></a></p>
-    <p>Description: <%= galaxy.description %></p>
+    <h4>Created by: <a class="profile-ref" href="/profiles/<%= galaxy.createdBy._id %>"><%= galaxy.createdBy.name %></a></h4>
+    <p>Description:<br> <%= galaxy.description %></p>
   </div>
     <h2>Planets:</h2>
     <% galaxy.planets.forEach(planet => { %>  
@@ -25,8 +25,10 @@
           <% } %>
           <h2 class="card-title"><%= planet.name %></h2>
           <p class="card-text">Type: <%= planet.type %></p>
-          <p class="card-text">Speed: <%= planet.speed %> mph</p>
-          <p class="card-text">Created by: <a href="/profiles/<%= planet.createdBy._id %>"><%= planet.createdBy.name %></a></p>
+          <% if (planet.size) {%> 
+            <p class="card-text">Size: <%= planet.size %> mile diameter</p>
+          <% } %>
+          <p class="card-text">Created by: <a class="prof-card" href="/profiles/<%= planet.createdBy._id %>"><%= planet.createdBy.name %></a></p>
           <% if (user) {%> 
             <% if (planet.shared) { %> 
               <p>This Space Object is shared</p>
@@ -44,7 +46,7 @@
                 <% }) %>
                 </select>
                 </label>
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary add">Add</button>
                 </form>
               <% } else { %>
                 <p>You don't have any Galaxies yet <a href="/galaxies/new" class="btn btn-primary">Create new Galaxy</a></p>
@@ -53,10 +55,6 @@
               <p>This Space Object is not shared</p>
             <% } %> 
           <% } %> 
-          <!-- <form action="/planets/<%= planet._id %>?_method=DELETE" method="POST">
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </form>
-            <a href="/planets/<%= planet._id %>/edit" class="btn btn-success">Edit</a> -->
             <% if (user) { %> 
               <% if (galaxy.createdBy._id.equals(user?.profile._id)) { %> 
              <form action="/galaxies/<%= galaxy._id %>/planets/<%= planet._id %>?_method=DELETE" method="POST">
