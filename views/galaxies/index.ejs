@@ -3,8 +3,10 @@
 <%- include('../partials/nav') %>
 
   <main>
-    <h1><%= title %></h1>
-
+    <h1 class="title" ><%= title %></h1>
+    <% if (user) { %> 
+      <a href="/galaxies/new" class="btn btn-primary btn-lg add-btn">Add Galaxy</a>
+    <% } %>   
     <% galaxies.forEach(galaxy => { %>  
       <div class="card text-center w-50">
         <div class="card-body">
@@ -20,13 +22,9 @@
             >
           <% } %>
           <h2 class="card-title"><%= galaxy.name %></h2>
-          <p class="card-text">Created by: <a href="/profiles/<%= galaxy.createdBy._id %>"><%= galaxy.createdBy.name %></a></p>
+          <p class="card-text">Created by: <a class="prof-card" href="/profiles/<%= galaxy.createdBy._id %>"><%= galaxy.createdBy.name %></a></p>
           <p class="card-text"><%= galaxy.description %></p>
-          <a href="/galaxies/<%= galaxy._id %>" class="btn btn-primary">Look inside</a>
-          <!-- <form action="/galaxies/<%= galaxy._id %>?_method=DELETE" method="POST">
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </form>
-            <a href="/galaxies/<%= galaxy._id %>/edit" class="btn btn-success">Edit</a> -->
+          <a href="/galaxies/<%= galaxy._id %>" class="btn btn-primary look">Look inside</a>
         </div>
       </div>
       <% }) %>

@@ -3,30 +3,34 @@
 <%- include('../partials/nav') %>
 
   <main>
-    <h1><%= title %></h1>
-
+    <h1 class="title"><%= title %></h1>
+    <a href="/galaxies/new" class="btn btn-primary btn-lg add-btn">Add Galaxy</a>
     <% galaxies.forEach(galaxy => { %>  
       <div class="card text-center w-50">
         <div class="card-body">
           <% if (galaxy.imgUrl) { %>
             <img
               src="<%= galaxy.imgUrl %>" 
-              alt="<%= galaxy.name %>"
+              alt="<%= galaxy.name %> Galaxy image"
             />
           <% } else { %>
             <img
               src="/images/defaultGalaxy.jpeg" 
-              alt="placeholder"
+              alt="<%= galaxy.name %> Galaxy image"
             >
           <% } %>
           <h2 class="card-title"><%= galaxy.name %></h2>
-          <p class="card-text">Created by: <a href="/profiles/<%= galaxy.createdBy._id %>"><%= galaxy.createdBy.name %></a></p>
-          <p class="card-text"><%= galaxy.description %></p>
-          <a href="/galaxies/<%= galaxy._id %>" class="btn btn-primary">Look inside</a>
+          <p class="card-text">Created by: <a class="prof-card" href="/profiles/<%= galaxy.createdBy._id %>"><%= galaxy.createdBy.name %></a></p>
+          <% if (galaxy.description) { %> 
+            <p class="card-text"> Description: <br><%= galaxy.description %></p>
+          <% } %> 
+          <a href="/galaxies/<%= galaxy._id %>" class="btn btn-primary look">Look inside</a>
+          <div class="card-button-group">
           <form action="/galaxies/<%= galaxy._id %>?_method=DELETE" method="POST">
             <button type="submit" class="btn btn-danger">Delete</button>
           </form>
             <a href="/galaxies/<%= galaxy._id %>/edit" class="btn btn-success">Edit</a>
+          </div>
         </div>
       </div>
       <% }) %>

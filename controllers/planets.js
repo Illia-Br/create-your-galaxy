@@ -13,12 +13,12 @@ function index(req, res) {
       res.render('planets/index', {
         galaxies,
         planets,
-        title: "All Planets"
+        title: "All Space Objects"
       })
     })} else {
       res.render('planets/index', {
         planets,
-        title: "All Planets"
+        title: "All Space Objects"
       })
     }
   })

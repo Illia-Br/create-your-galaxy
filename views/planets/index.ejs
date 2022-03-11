@@ -3,8 +3,10 @@
 <%- include('../partials/nav') %>
 
   <main>
-    <h1><%= title %></h1>
-
+    <h1 class="title" ><%= title %></h1>
+    <% if (user) { %> 
+      <a href="/planets/new" class="btn btn-primary btn-lg add-btn">Add Space Object</a>
+    <% } %>
     <% planets.forEach(planet => { %>  
       <div class="card text-center w-50">
         <div class="card-body">
@@ -21,8 +23,10 @@
           <% } %>
           <h2 class="card-title"><%= planet.name %></h2>
           <p class="card-text">Type: <%= planet.type %></p>
-          <p class="card-text">Size: <%= planet.size %> mph</p>
-          <p class="card-text">Created by: <a href="/profiles/<%= planet.createdBy._id %>"><%= planet.createdBy.name %></a></p>
+          <% if (planet.size) {%> 
+            <p class="card-text">Size: <%= planet.size %> mile diameter</p>
+          <% } %>
+          <p class="card-text">Created by: <a class="prof-card" href="/profiles/<%= planet.createdBy._id %>"><%= planet.createdBy.name %></a></p>
           <% if (user) {%> 
             <% if (planet.shared) { %> 
               <p>This Space Object is shared</p>

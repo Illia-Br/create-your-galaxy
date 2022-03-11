@@ -1,7 +1,7 @@
 <%- include('./partials/html-head') %>
 <%- include('./partials/nav') %>
 
-<main class="main-main">
+<main class="main-title">
   <h1 class="main-h1">Welcome to "Create your Galaxy!"</h1>
   <% if (user) { %> 
     <div class="main-button-container">
@@ -9,7 +9,7 @@
       <a href="/planets/new" class="btn btn-primary btn-lg">Add Space Object</a>
     </div>
    <% } else { %> 
-    <h2>You can browse all the Galaxies and Space Objects available or sign in to create your owns</h2>
+    <h2>You can browse all the Galaxies and Space Objects available<br> or sign in to create your own</h2>
     <% } %> 
 </main>
 
