@@ -17,7 +17,6 @@ html {
 }
 
 body {
-  background-color: gray;
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: 'Acme', sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
@@ -29,10 +28,7 @@ body {
     "nav"
     "main";
   font-size: 1.8rem;
-  background-color: #11169c;
-  background-color: #030421;
-  
-  background: url('/images/background4.jpg') #e8eceb;
+  background: url('/images/background4.jpg') darkblue;
   background-size: cover;
 }
 
@@ -44,7 +40,6 @@ nav {
   align-items: center;
   padding: 0 20px 0 30px;
 }
-
 
 nav > a {
   margin: 20px;
@@ -59,10 +54,6 @@ nav > a {
 nav > a:hover {
   color: white;
   background-color: #424748;
-}
-
-nav > a.active {
-  color: white;
 }
 
 main {
@@ -202,9 +193,6 @@ h4 {
 
 .card-body {
   padding: 10px 0 1%;
-  
-  /* background: url('/images/background1.jpg') #e8eceb;
-  background-size: cover; */
 }
 
 .card-title {
