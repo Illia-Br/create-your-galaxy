@@ -17,25 +17,24 @@
   <% } %> 
     
   <% if (profile.galaxies.length) { %>
-      <h2><%= isSelf ? "You have: " : `${profile.name} has: ` %></h2>
-      <h3> <%= `${profile.galaxies.length} galaxies!` %> </h3>
+      <h2></h2>
+      <h2> <%= isSelf ? "You have " : `${profile.name} has ` %> <a class="profile-ref" href="/galaxies/mygalaxies"><%= `${profile.galaxies.length} Galaxies` %></a>!</h2>
   <% } else { %>
     <h3>
-      <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any galaxies!
+      <%= isSelf ? "You don't " : `${profile.name} doesn't ` %>have any galaxies!
     </h3>
   <% } %>
   <% if (profile.planets.length) { %>
-    <h2><%= isSelf ? "You have: " : `${profile.name} has: ` %></h2>
-    <h3> <%= `${profile.planets.length} planets!` %> </h3>
+    <h2> <%= isSelf ? "You have " : `${profile.name} has ` %><a class="profile-ref" href="/planets/myplanets"><%= `${profile.planets.length} Space Objects` %></a>!</h2>
 <% } else { %>
   <h3>
-    <%= isSelf ? "You don't " : `${profile.name} doesn't` %> have any planets!
+    <%= isSelf ? "You don't " : `${profile.name} doesn't ` %>have any Space Objects!
   </h3>
 <% } %>
-<a href="/planets/myplanets">My Planets</a>
-<a href="/galaxies/mygalaxies">My Galaxies</a>
-<a href="/planets/new">Add new Planet</a>
-<a href="/galaxies/new">Add new Galaxy</a>
+<div class="main-button-container">
+  <a href="/galaxies/new" class="btn btn-primary btn-lg">Add Galaxy</a>
+  <a href="/planets/new" class="btn btn-primary btn-lg">Add Space Object</a>
+</div>
 </main>
 
 <%- include('../partials/footer') %>
