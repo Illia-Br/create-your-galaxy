@@ -23,7 +23,9 @@
           <% } %>
           <h2 class="card-title"><%= galaxy.name %></h2>
           <p class="card-text">Created by: <a class="prof-card" href="/profiles/<%= galaxy.createdBy._id %>"><%= galaxy.createdBy.name %></a></p>
-          <p class="card-text"><%= galaxy.description %></p>
+          <% if (galaxy.description) { %> 
+            <p class="card-text"> Description: <br><%= galaxy.description %></p>
+          <% } %> 
           <a href="/galaxies/<%= galaxy._id %>" class="btn btn-primary look">Look inside</a>
         </div>
       </div>

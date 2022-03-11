@@ -4,6 +4,9 @@
 
   <main>
     <h1 class="title"><%= title %></h1>
+    <% if (!galaxies.length) { %> 
+      <h2>You don't have any Galaxies yet!</h2>
+    <% } %>
     <a href="/galaxies/new" class="btn btn-primary btn-lg add-btn">Add Galaxy</a>
     <% galaxies.forEach(galaxy => { %>  
       <div class="card text-center w-50">
