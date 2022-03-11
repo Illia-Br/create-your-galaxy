@@ -38,7 +38,7 @@ body {
 
 nav {
   grid-area: nav;
-  background-color: #42C2FF;
+  background-color: #4D77FF;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -51,11 +51,9 @@ nav > a {
   text-decoration: none !important;
   padding: 6px;
   border-radius: 5px;
-  color: #424748;
-}
-
-nav > a:visited {
-  color: #424748;
+  color: #FFCA03;
+  text-shadow: 1px 1px 1px black;
+  font-size: 2rem;
 }
 
 nav > a:hover {
@@ -98,7 +96,7 @@ h4 {
 
 .card-text {
   margin: 4px;
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 .main-title h1{
@@ -204,6 +202,8 @@ h4 {
 
 .card-body {
   padding: 10px 0 1%;
+  background: url('/images/background1.jpg') #e8eceb;
+  background-size: cover;
 }
 
 .card-title {
