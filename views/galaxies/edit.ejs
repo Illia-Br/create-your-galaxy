@@ -3,16 +3,17 @@
 
 <main>
   <h1><%= title %></h1>
-  <form action="/galaxies/<%= galaxy._id %>?_method=PUT" method="POST" autocomplete="off">
+  <form class="new-item" action="/galaxies/<%= galaxy._id %>?_method=PUT" method="POST" autocomplete="off">
     <label>Name (required): 
-      <input type="text" name="name" value="<%= galaxy.name %>">
+      <input type="text" name="name" placeholder="Any name" value="<%= galaxy.name %>">
     </label><br>
-    <label>Image:
-      <input type="text" name="imgUrl" value="<%= galaxy.imgUrl %>">
+    <label>Image URL:
+      <input type="text" name="imgUrl" placeholder="https://..." value="<%= galaxy.imgUrl %>">
     </label><br>
     <label for="galaxy-description">Description:</label> <br>
     <textarea id="galaxy-description" name="description" value="<%= galaxy.description %>"><%= galaxy.description %></textarea><br>
-    <button type="submit">Save Galaxy</button>
+    <button class="btn btn-primary btn-lg" type="submit">Save Galaxy</button>
+    <p>* Leave "Image Url" field blank if you want default picture to be applied</p>
   </form>
   </main>
 

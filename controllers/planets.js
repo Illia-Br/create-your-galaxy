@@ -94,7 +94,7 @@ function edit(req, res) {
     .then(planet => {
       res.render('planets/edit', {
         planet,
-        title: 'Edit Planet'
+        title: 'Edit Space Object'
       })
     })
 }
