@@ -5,7 +5,7 @@
   <main>
     <h1 class="title" ><%= title %></h1>
     <% if (user) { %> 
-      <a href="/planets/new" class="btn btn-primary btn-lg add-btn">Add Space Object</a>
+      <a href="/planets/new" class="btn btn-primary btn-lg add-btn">Create Space Object</a>
     <% } %>
     <% planets.forEach(planet => { %>  
       <div class="card text-center w-50">
@@ -31,23 +31,27 @@
             <% if (planet.shared) { %> 
               <p>This Space Object is shared</p>
               <% if (galaxies.length) { %> 
-                <form 
-                 action="/galaxies/<%= planet._id %>/planets"
-                method="post"
-                >
-                <label> Choose your Galaxy:
-                <select name="galaxyId">
-                <% galaxies.forEach(galaxy => { %>
-                <% if (!(galaxy.planets.includes(planet._id))) {%> 
-                <option value="<%= galaxy._id %>"><%= galaxy.name %></option>
-                  <% } %>
-                <% }) %>
-                </select>
-                </label>
-                <button type="submit" class="btn btn-primary">Add</button>
-                </form>
+                <% if (galaxies.length !== checkAll(galaxies, planet)) {%> 
+                  <form 
+                   action="/galaxies/<%= planet._id %>/planets"
+                  method="post"
+                  >
+                  <label> Choose your Galaxy:
+                  <select name="galaxyId">
+                  <% galaxies.forEach(galaxy => { %>
+                  <% if (!(galaxy.planets.includes(planet._id))) {%> 
+                  <option value="<%= galaxy._id %>"><%= galaxy.name %></option>
+                    <% } %>
+                  <% }) %>
+                  </select>
+                  </label>
+                  <button type="submit" class="btn btn-primary add">Add</button>
+                  </form>
+                  <% } else { %>
+                    <p>This Space Object is already in all your Galaxies</p>
+                  <% } %> 
               <% } else { %>
-                <p>You don't have any Galaxies yet <a href="/galaxies/new" class="btn btn-primary">Create new Galaxy</a></p>
+                <p>You don't have any Galaxies yet <a href="/galaxies/new" class="btn btn-primary">Add Galaxy</a></p>
               <% } %>
             <% } else {%>
               <p>This Space Object is not shared</p>
@@ -56,6 +60,16 @@
         </div>
       </div>
       <% }) %>
+
+      <% function checkAll(galaxies, planet) { %>
+        <% let total = 0 %>
+        <%  galaxies.forEach(galaxy => {%>
+        <%  if (galaxy.planets.includes(planet._id)) {%>
+          <% total += 1 }%>
+          <% %> 
+        <% }) %>  
+        <% return total %>
+      <% } %>
 
   </main>
 

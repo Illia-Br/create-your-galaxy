@@ -7,7 +7,7 @@
     <% if (!planets.length) { %> 
       <h2>You don't have any Space Objects yet!</h2>
     <% } %>
-    <a href="/planets/new" class="btn btn-primary btn-lg add-btn">Add Space Object</a>
+    <a href="/planets/new" class="btn btn-primary btn-lg add-btn">Create Space Object</a>
     <% planets.forEach(planet => { %>  
       <div class="card text-center w-50">
         <div class="card-body">
@@ -29,6 +29,7 @@
           <% } %>
           <p class="card-text">Created by: <a class="prof-card" href="/profiles/<%= planet.createdBy._id %>"><%= planet.createdBy.name %></a></p>
           <% if (galaxies.length) { %> 
+            <% if (galaxies.length !== checkAll(galaxies, planet)) {%> 
             <form 
              action="/galaxies/<%= planet._id %>/planets"
             method="post"
@@ -44,6 +45,9 @@
             </label>
             <button type="submit" class="btn btn-primary add">Add</button>
             </form>
+            <% } else { %>
+              <p>This Space Object is already in all your Galaxies</p>
+            <% } %> 
           <% } else { %>
             <p>You don't have any Galaxies yet <a href="/galaxies/new" class="btn btn-primary add">Add Galaxy</a></p>
           <% } %>
@@ -57,6 +61,16 @@
       </div>
       <% }) %>
       
+      <% function checkAll(galaxies, planet) { %>
+        <% let total = 0 %>
+        <%  galaxies.forEach(galaxy => {%>
+        <%  if (galaxy.planets.includes(planet._id)) {%>
+          <% total += 1 }%>
+          <% %> 
+        <% }) %>  
+        <% return total %>
+      <% } %>
+
   </main>
 
   <%- include('../partials/footer') %>
