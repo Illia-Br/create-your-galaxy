@@ -6,7 +6,7 @@ Another question: do you think that's enough? Well, if you don't, you are in the
 
 ## Getting Started
 
-Try it now: <https://create-your-galaxy.herokuapp.com/>
+Try it now: <https://create-your-galaxy.fly.dev/>
 
 
 ## Screenshots
